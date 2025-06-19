@@ -1,0 +1,32 @@
+# Ignorar archivo con variables sensibles
+.env
+
+# Ignorar backups y archivos grandes
+backups/
+*.tar.gz
+*.zip
+
+# Ignorar claves y certificados
+*.pem
+*.key
+*.crt
+
+# Ignorar archivos temporales y logs
+*.log
+*.tmp
+*.swp
+
+# Archivos específicos del sistema o editores
+.DS_Store
+Thumbs.db
+
+# Carpetas de caché y configuración de editores
+__pycache__/
+.vscode/
+.idea/
+
+# Ignorar archivos Docker temporales
+docker-compose.override.yml
+
+# Archivos secretos o sensibles
+secret-*.txt
