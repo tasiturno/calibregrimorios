@@ -1,64 +1,35 @@
-# Backups del sistema calibregrimorios.org
+# Sistema de Backups
 
-## 🗂️ Archivos respaldados
+Los respaldos automáticos protegen la biblioteca de calibre-web y la configuración del sistema.
 
-- Biblioteca Calibre: `/mnt/disco_calibre/calibre-library`
-- Configuraciones y scripts: `/home/pi/calibregrimorios`
+## 🗂️ Directorios respaldados
 
-Los respaldos se comprimen en formato `.tar.gz` para ahorro de espacio.
+- `/mnt/disco_calibre/calibre-library` → Biblioteca principal
+- `/home/pi/calibregrimorios` → Configuración del sistema
 
-## 📍 Ubicación del respaldo
+## 📅 Frecuencia
 
-Los archivos se guardan en:
+- **Biblioteca**: respaldo diario a las 02:00
+- **Sistema completo**: respaldo semanal los miércoles a las 03:00
 
-/mnt/disco_calibre/backups/
+## 🗃️ Formato
 
-yaml
-Copiar
-Editar
+- Archivos `.tar.gz` con fecha y hora
+- Ejemplo: `library_backup_2025-06-19_02-00.tar.gz`
 
-Con nombres como:
+## 📤 Destino
 
-system_backup_YYYY-MM-DD_HH-MM.tar.gz
+- Todos los backups se almacenan en:  
+  `/mnt/disco_calibre/backups/`
 
-markdown
-Copiar
-Editar
+## 🔔 Notificaciones
 
-## 🔄 Frecuencia
+- Se envía mensaje por Telegram con resultado:
+  - ✅ Éxito
+  - ❌ Error
 
-- **Automática cada semana** (mediante `cron`)
-- Script utilizado: `scripts/backup.sh`
+## 🔄 Rotación de backups
 
-## 📢 Notificaciones
-
-Al finalizar el backup, se envía una notificación por Telegram al bot configurado (ver `scripts/notify.sh`).
-
-## 🛡️ Seguridad
-
-- El disco de respaldo está montado como unidad externa.
-- Sólo el usuario `pi` tiene acceso de escritura.
-- Se recomienda sincronizar manualmente con un almacenamiento externo cada mes.
-
-## 🧪 Verificación
-
-Cada backup puede verificarse descomprimiéndolo y listando su contenido:
-
-```bash
-tar -tzf system_backup_2025-06-19_03-11.tar.gz
-Repositorio: github.com/tasiturno/calibregrimorios
-
-markdown
-Copiar
-Editar
-
-3. Luego guarda y cierra:
-   - `Ctrl + O`, Enter
-   - `Ctrl + X`
-
-4. Y finalmente súbelo al repositorio:
-
-```bash
-git add docs/backups.md
-git commit -m "Documentación: sistema de backups automáticos"
-git push
+- Los scripts eliminan respaldos antiguos automáticamente:
+  - Biblioteca: se conservan los últimos **7 días**
+  - Sistema: se conservan las últimas **4 semanas**
