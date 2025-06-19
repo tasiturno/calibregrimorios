@@ -68,11 +68,4 @@ Editar
 
 ---
 
-### 💾 Guardar y subir
 
-Después de guardar (`Ctrl+O`, Enter, `Ctrl+X`), ejecuta:
-
-```bash
-git add docs/arquitectura.md
-git commit -m "Documentación: arquitectura técnica del sistema"
-git push
