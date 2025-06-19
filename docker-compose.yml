@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  calibre-web:
+    image: linuxserver/calibre-web:latest
+    container_name: calibre-web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Mexico_City
+    volumes:
+      - /mnt/disco_calibre/calibre-library:/books
+      - /mnt/disco_calibre/calibre-config:/config
+    ports:
+      - 8083:8083
+    restart: unless-stopped
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --schedule "0 4 * * 0" --cleanup
+    restart: unless-stopped
