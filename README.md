@@ -49,7 +49,7 @@ Verifica el dominio en SMTP2GO y añade registros DNS CNAME y TXT (SPF, DKIM) en
 
 Configura en docker-compose.yml las variables SMTP (host, puerto, usuario, contraseña).
 
-Configura Calibre-Web para usar el correo noreply@calibregrimorios.org.
+Configura Calibre-Web para usar tu correo noreply@XXXX.XX.
 
 Prueba envío de correos para confirmación.
 
