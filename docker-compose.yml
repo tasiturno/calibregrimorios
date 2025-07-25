@@ -8,9 +8,19 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Mexico_City
+      - MAX_CONTENT_LENGTH=2147483648  # 2GB en bytes
+
+      # Configuración SMTP2GO para Calibre-Web
+      - EMAIL_USE_TLS=true
+      - EMAIL_HOST=mail.smtp2go.com
+      - EMAIL_PORT=587
+      - EMAIL_HOST_USER=noreply@calibregrimorios.org
+      - EMAIL_HOST_PASSWORD=***REMOVED***
+      - EMAIL_FROM_ADDRESS=noreply@calibregrimorios.org
+
     volumes:
       - /mnt/disco_calibre/calibre-library:/books
-      - /mnt/disco_calibre/calibre-config:/config
+      - /mnt/disco_calibre/calibre-library/config:/config
     ports:
       - 8083:8083
     restart: unless-stopped
@@ -20,5 +30,5 @@ services:
     container_name: watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --schedule "0 4 * * 0" --cleanup
+    command: --schedule "0 4 * * 7" --cleanup
     restart: unless-stopped
