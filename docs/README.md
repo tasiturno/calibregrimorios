@@ -1,32 +1,28 @@
-# Documentación Técnica – calibregrimorios.org
+# Documentación Técnica · calibregrimorios.org
 
-Este directorio contiene la documentación del proyecto de biblioteca digital privada **Calibre-Grimorios**, basado en Calibre-Web, Docker y Raspberry Pi.
-
-## 📚 Índice de Documentos
-
-| Documento | Descripción |
-| --------- | ----------- |
-| [Email-SMTP2GO.md](Email-SMTP2GO.md) | Configuración de correo saliente usando SMTP2GO |
-| `docker-compose.yml` | Orquestación de servicios en Docker (definido en el directorio raíz) |
-| `scripts/` | Scripts de respaldo, mantenimiento y notificaciones |
-| `nginx/` | Configuraciones para acceso seguro a través de Cloudflare Tunnel |
-| `README.md` (raíz) | Visión general del proyecto y guía de instalación |
-
-## 🧩 Componentes del Proyecto
-
-- Raspberry Pi 4 con Raspbian
-- Docker + Docker Compose
-- Calibre-Web
-- Cloudflare Tunnel
-- SMTP2GO (envío de libros por correo)
-- Cloudflare Email Routing (recepción de correos)
-- SFTP (subida alternativa de libros)
-- GitHub (documentación y control de versiones)
-
-## 🔐 Notas sobre Seguridad
-
-No incluir archivos sensibles como `.env`, claves privadas o contraseñas SMTP en este repositorio. Usar archivos `.env` o variables de entorno en `docker-compose.yml` para manejar credenciales de forma segura.
+Este directorio contiene la documentación técnica del sistema que aloja y mantiene el sitio [calibregrimorios.org](https://calibregrimorios.org), una biblioteca digital basada en Calibre-Web.
 
 ---
 
-📅 Documento actualizado: 25 de julio de 2025
+## 📄 Índice de Documentos
+
+| Documento                      | Descripción                                                                 |
+| ----------------------------- | --------------------------------------------------------------------------- |
+| [arquitectura.md](arquitectura.md)           | Descripción general de la arquitectura: Raspberry Pi, Docker, NGINX, etc.         |
+| [mantenimiento.md](mantenimiento.md)         | Tareas de mantenimiento periódicas: actualizaciones, limpieza, etc.              |
+| [backups.md](backups.md)                     | Configuración y automatización de copias de seguridad.                           |
+| [respaldo.md](respaldo.md)                   | Guía para restaurar el sistema desde una copia de seguridad.                     |
+| [telegram-notificaciones.md](telegram-notificaciones.md) | Cómo configurar notificaciones del sistema y Docker vía Telegram.         |
+| [Email-SMTP2GO.md](Email-SMTP2GO.md)         | Configuración de correo saliente SMTP con SMTP2GO para Calibre-Web.              |
+| [troubleshooting.md](troubleshooting.md)     | Solución de problemas comunes en el sistema.                                     |
+
+---
+
+## 📌 Notas
+
+- Todos los archivos están escritos en Markdown (`.md`) y se actualizan conforme se realiza mantenimiento al sistema.
+- Esta documentación se mantiene en el repositorio privado/público de GitHub bajo licencia libre.
+
+---
+
+📅 Última actualización: 25 de julio de 2025
