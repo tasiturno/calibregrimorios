@@ -30,3 +30,15 @@ docker-compose.override.yml
 
 # Archivos secretos o sensibles
 secret-*.txt
+.env
+.env.*
+*.var
+passwords.txt
+*.swp
+*.swo
+*.bak
+.DS_Store
+.idea/
+.vscode/
+*.log
+*.tmp
